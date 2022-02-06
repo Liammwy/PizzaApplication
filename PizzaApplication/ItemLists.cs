@@ -56,6 +56,7 @@ namespace PizzaApplication
             "Pickles",
             "Onion",
             "Mushrooms",
+            "Ham",
         };
 
         public void addPizza()
