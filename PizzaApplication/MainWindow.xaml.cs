@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace PizzaApplication
 {
@@ -31,26 +32,43 @@ namespace PizzaApplication
 
         private void ConfirmPizza_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectPizza.SelectedItems.Count == 1)
+            int Count = 0;
+            if (SelectPizza.SelectedItems.Count != 1)
+            {
+                Trace.WriteLine("No pizza has been selected.");
+                Count++;
+            }
+
+            if (SelectSize.SelectedItems.Count != 1)
+            {
+                Trace.WriteLine("Please enter a pizza size.");
+                Count++;
+            }
+
+            if (SelectTopping.SelectedItems.Count == 0)
+            {
+                Trace.WriteLine("Please select a topping.");
+                Count++;
+            }
+
+            if (Count == 0)
             {
                 pizzaChoice.Pizza = SelectPizza.SelectedItem.ToString();
-                if (SelectPizza.SelectedItems.Count == 1)
-                {
-                    pizzaChoice.Size = SelectSize.SelectedItem.ToString();
-                    if (SelectTopping.SelectedItems.Count >= 1)
-                    {
-                        foreach (string topping in SelectTopping.SelectedItems)
-                        {
-                            pizzaChoice.Toppings = SelectTopping.SelectedItem.ToString();
-                        }
-
-                        OrderList.Items.Add($"Pizza Number: {SelectPizza.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: ");
-                        SelectPizza.UnselectAll();
-                        SelectSize.UnselectAll();
-                        SelectTopping.UnselectAll();
-                    }
-                }
+                pizzaChoice.Size = SelectSize.SelectedItem.ToString();
+                pizzaChoice.Toppings = SelectTopping.SelectedItem.ToString();
+                OrderList.Items.Add($"Pizza Number: {OrderList.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {pizzaChoice.Toppings}");
             }
+            SelectPizza.UnselectAll();
+            SelectSize.UnselectAll();
+            SelectTopping.UnselectAll();
+        }
+
+        //Clear the current pizza selection (Pizza, size, topping)
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectPizza.UnselectAll();
+            SelectSize.UnselectAll();
+            SelectTopping.UnselectAll();
         }
     }
 }

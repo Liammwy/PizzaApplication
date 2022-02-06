@@ -18,6 +18,7 @@
         <ListBox x:Name="SelectTopping" SelectionMode="Multiple" Margin="410,162,309,115"/>
         <ListBox x:Name="OrderList" Margin="595,162,10,65"/>
         <Button x:Name="ConfirmPizza" Content="Confirm Pizza" HorizontalAlignment="Left" Margin="217,409,0,0" VerticalAlignment="Top" Height="39" Width="147" FontSize="20" Click="ConfirmPizza_Click"/>
+        <Button x:Name="ClearOrder" Content="Clear Order" HorizontalAlignment="Left" Margin="393,409,0,0" VerticalAlignment="Top" Height="39" Width="124" FontSize="20" Click="Button_Click"/>
 
     </Grid>
 </Window>
