@@ -5,10 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PizzaApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="500" Width="880" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,-6">
         <Label Content="Your Way Pizza Order System" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="26" FontFamily="MV Boli"/>
         <Image HorizontalAlignment="Left" Height="89" Margin="10,10,0,0" VerticalAlignment="Top" Width="194" Source="/PizzaLogo.png"/>
+        <Label Content="Select Your Pizza" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="18"/>
+        <Label Content="Select Your Size" HorizontalAlignment="Left" Margin="210,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="19" Width="161"/>
+        <Label Content="Select Your Topping" HorizontalAlignment="Left" Margin="410,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="15" Width="161"/>
+        <Label Content="Order List" HorizontalAlignment="Left" Margin="666,110,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" RenderTransformOrigin="1.519,0.751"/>
+        <ListBox x:Name="SelectPizza" Margin="10,162,709,115"/>
+        <ListBox x:Name="SelectSize" Margin="210,162,509,115"/>
+        <ListBox x:Name="SelectTopping" SelectionMode="Multiple" Margin="410,162,309,115"/>
+        <ListBox x:Name="OrderList" Margin="595,162,10,65"/>
+        <Button x:Name="ConfirmPizza" Content="Confirm Pizza" HorizontalAlignment="Left" Margin="217,409,0,0" VerticalAlignment="Top" Height="39" Width="147" FontSize="20" Click="ConfirmPizza_Click"/>
 
     </Grid>
 </Window>

@@ -20,9 +20,37 @@ namespace PizzaApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ItemLists itemList;
+        public PizzaChoice pizzaChoice = new PizzaChoice();
+
         public MainWindow()
         {
             InitializeComponent();
+            new ItemLists(this);
+        }
+
+        private void ConfirmPizza_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectPizza.SelectedItems.Count == 1)
+            {
+                pizzaChoice.Pizza = SelectPizza.SelectedItem.ToString();
+                if (SelectPizza.SelectedItems.Count == 1)
+                {
+                    pizzaChoice.Size = SelectSize.SelectedItem.ToString();
+                    if (SelectTopping.SelectedItems.Count >= 1)
+                    {
+                        foreach (string topping in SelectTopping.SelectedItems)
+                        {
+                            pizzaChoice.Toppings = SelectTopping.SelectedItem.ToString();
+                        }
+
+                        OrderList.Items.Add($"Pizza Number: {SelectPizza.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: ");
+                        SelectPizza.UnselectAll();
+                        SelectSize.UnselectAll();
+                        SelectTopping.UnselectAll();
+                    }
+                }
+            }
         }
     }
 }
