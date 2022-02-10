@@ -86,7 +86,7 @@ namespace PizzaApplication
                     }
                 }
                 string combinedString = string.Join(", ", PizzaToppingsSelect);
-                OrderList.Items.Add($"Pizza Number: {OrderList.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}");
+                OrderList.Items.Add($"Pizza Number: {OrderList.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}\n");
             }
             SelectPizza.UnselectAll();
             SelectSize.UnselectAll();
