@@ -5,39 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PizzaApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Background="Black" Width="1200" ResizeMode="NoResize">
+        Title="MainWindow" Height="520" Background="Black" Width="1100" ResizeMode="NoResize">
     <Grid Margin="0,0,0,-6">
-        <Label Foreground="White" Content="Your Way Pizza Order System" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="45" FontFamily="MV Boli"/>
-        <Image HorizontalAlignment="Left" Height="89" Margin="10,10,0,0" VerticalAlignment="Top" Width="194" Source="/PizzaLogo.png"/>
-        <Label Foreground="White" Content="Select Pizza" HorizontalAlignment="Left" Margin="38,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" OpacityMask="Red" Width="152">
+        <Grid.Background>
+            <ImageBrush ImageSource="/255px-Flag_of_Italy.svg.png"/>
+        </Grid.Background>
+        <Label Foreground="Black" Content="Your Way Pizza" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="45" FontFamily="MV Boli"/>
+        <Image HorizontalAlignment="Left" Height="127" Margin="10,10,0,0" VerticalAlignment="Top" Width="235" Source="/PizzaLogo.png"/>
+        <Label Foreground="White" Content="Select Pizza" HorizontalAlignment="Left" Margin="32,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" OpacityMask="Red" Width="152">
             <Label.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </Label.Background>
         </Label>
-        <Label Foreground="White" Content="Select Size" HorizontalAlignment="Left" Margin="272,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="153" OpacityMask="Red"/>
-        <Label Foreground="White" Content="Select Topping" HorizontalAlignment="Left" Margin="498,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="184" OpacityMask="Red" RenderTransformOrigin="0.549,0.461"/>
-        <Label Foreground="White" Content="Order List" HorizontalAlignment="Left" Margin="789,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
-        <ListBox x:Name="SelectPizza" Margin="38,192,999,44" Foreground="White">
+        <Label Foreground="white" Content="Select Size" HorizontalAlignment="Left" Margin="207,140,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="153" OpacityMask="Red"/>
+        <Label Foreground="Black" Content="Select Topping" HorizontalAlignment="Left" Margin="376,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="184" OpacityMask="Red" RenderTransformOrigin="0.549,0.461"/>
+        <Label Foreground="white" Content="Order List" HorizontalAlignment="Left" Margin="815,132,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="30" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
+        <ListBox x:Name="SelectPizza" Margin="27,192,921,44" Foreground="white">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <ListBox x:Name="SelectSize" Margin="268,192,767,44" Foreground="White">
+        <ListBox x:Name="SelectSize" Margin="196,192,745,44" Foreground="white">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <ListBox x:Name="SelectTopping" SelectionMode="Multiple" Margin="502,192,518,44" Foreground="White">
+        <ListBox x:Name="SelectTopping" SelectionMode="Multiple" Margin="379,192,543,44" Foreground="Black">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <ListBox x:Name="OrderList" SelectionMode="Multiple" Margin="734,192,224,44" Foreground="White">
+        <ListBox x:Name="OrderList" SelectionMode="Multiple" Margin="782,191,96,44" Foreground="white">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <Button Background="Green" Foreground="White" x:Name="ConfirmPizza" Content="Confirm Pizza" HorizontalAlignment="Left" Margin="994,195,0,0" VerticalAlignment="Top" Height="57" Width="176" FontSize="25" Click="ConfirmPizza_Click" RenderTransformOrigin="0.5,0.5">
+        <Button Background="Green" Foreground="White" x:Name="ConfirmPizza" Content="Confirm Pizza" HorizontalAlignment="Left" Margin="572,196,0,0" VerticalAlignment="Top" Height="57" Width="126" FontSize="17" Click="ConfirmPizza_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -47,9 +50,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Background="CornflowerBlue" Foreground="White" x:Name="ClearOrder" Content="Clear Order" HorizontalAlignment="Left" Margin="995,338,0,0" VerticalAlignment="Top" Height="55" Width="177" FontSize="25" Click="Button_Click"/>
-        <Button Background="DarkOrange" Foreground="White" Content="Select Sides" HorizontalAlignment="Left" Margin="995,265,0,0" VerticalAlignment="Top" FontSize="25" Width="177" Height="55" RenderTransformOrigin="0.523,0.713"/>
-        <Button Background="Red" Foreground="White" Content="Remove Item(s)" HorizontalAlignment="Left" Margin="995,411,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.2,0.167" FontSize="25" Click="Button_Click_1" Height="55" Width="177"/>
+        <Button Background="CornflowerBlue" Foreground="White" x:Name="ClearOrder" Content="Clear Order" HorizontalAlignment="Left" Margin="578,293,0,0" VerticalAlignment="Top" Height="55" Width="122" FontSize="17" Click="Button_Click" RenderTransformOrigin="-1.062,0.617"/>
+        <Button Background="DarkOrange" Foreground="White" Content="Next &gt;&gt;" HorizontalAlignment="Left" Margin="973,12,0,0" VerticalAlignment="Top" FontSize="20" Width="101" Height="55" RenderTransformOrigin="0.523,0.713"/>
+        <Button Background="Red" Foreground="White" Content="Remove Item(s)" HorizontalAlignment="Left" Margin="578,388,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.2,0.167" FontSize="17" Click="Button_Click_1" Height="55" Width="122"/>
 
     </Grid>
 </Window>

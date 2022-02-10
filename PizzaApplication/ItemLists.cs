@@ -27,6 +27,39 @@ namespace PizzaApplication
             addSize();
             addTopping();
         }
+
+        public Dictionary<string, double> PizzaType = new Dictionary<string, double>()
+        {
+            {"Neapolitan", 7.80},
+            {"Chicago", 8.60},
+            {"Greek", 7.15},
+            {"Margherita", 5.45},
+            {"Meat Lover", 13.35},
+            {"Hawaiian", 9.85},
+            {"Texan BBQ", 13.65},
+            {"Ham", 5.20},
+        };
+
+        public Dictionary<string, double> PizzaSize = new Dictionary<string, double>()
+        {
+            {"Small", 1.05},
+            {"Medium", 1.2},
+            {"Large", 1.3},
+            {"Extra Large", 1.5},
+        };
+
+        public Dictionary<string, double> PizzaTopping = new Dictionary<string, double>()
+        {
+            {"None", 7.80},
+            {"Extra Cheese", 8.60},
+            {"Ham", 7.15},
+            {"Onion", 5.45},
+            {"Olives", 13.35},
+            {"Muushrooms", 9.85},
+            {"Peppers", 13.65},
+            {"Beef", 5.20},
+        };
+
         //Pizza Types list, add more pizza types here.
         public List<string> PizzaTypes = new List<string>()
         {
