@@ -8,10 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="255px-Flag_of_Italy.svg.png" />
+    <None Remove="4982971.jpg" />
+    <None Remove="fc41bs84-main.jpg" />
+    <None Remove="pizza-italian-pizza-black-5003.jpg" />
+    <None Remove="pizzabgLogo.png" />
     <None Remove="PizzaLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="255px-Flag_of_Italy.svg.png" />
+    <Resource Include="4982971.jpg" />
+    <Resource Include="fc41bs84-main.jpg" />
+    <Resource Include="pizza-italian-pizza-black-5003.jpg" />
+    <Resource Include="pizzabgLogo.png" />
     <Resource Include="PizzaLogo.png" />
   </ItemGroup>
 

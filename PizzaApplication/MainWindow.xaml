@@ -5,20 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PizzaApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="880" ResizeMode="NoResize">
+        Title="MainWindow" Height="500" Background="#d7d7d7" Width="880"  ResizeMode="NoResize" Icon="/pizzabgLogo.png">
     <Grid Margin="0,0,0,-6">
-        <Label Content="Your Way Pizza Order System" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="26" FontFamily="MV Boli"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/255px-Flag_of_Italy.svg.png"/>
+        </Grid.Background>
+        <Label Content="Your Way Pizza Order System" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="MV Boli"/>
         <Image HorizontalAlignment="Left" Height="89" Margin="10,10,0,0" VerticalAlignment="Top" Width="194" Source="/PizzaLogo.png"/>
-        <Label Content="Select Your Pizza" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="18"/>
-        <Label Content="Select Your Size" HorizontalAlignment="Left" Margin="210,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="19" Width="161"/>
-        <Label Content="Select Your Topping" HorizontalAlignment="Left" Margin="410,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="15" Width="161"/>
-        <Label Content="Order List" HorizontalAlignment="Left" Margin="666,110,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" RenderTransformOrigin="1.519,0.751"/>
-        <ListBox x:Name="SelectPizza" Margin="10,162,709,115"/>
-        <ListBox x:Name="SelectSize" Margin="210,162,509,115"/>
-        <ListBox x:Name="SelectTopping" SelectionMode="Multiple" Margin="410,162,309,115"/>
-        <ListBox x:Name="OrderList" Margin="595,162,10,65"/>
-        <Button x:Name="ConfirmPizza" Content="Confirm Pizza" HorizontalAlignment="Left" Margin="217,409,0,0" VerticalAlignment="Top" Height="39" Width="147" FontSize="20" Click="ConfirmPizza_Click"/>
-        <Button x:Name="ClearOrder" Content="Clear Order" HorizontalAlignment="Left" Margin="393,409,0,0" VerticalAlignment="Top" Height="39" Width="124" FontSize="20" Click="Button_Click"/>
+        <Label Foreground="White" Content="Select Pizza" HorizontalAlignment="Left" Margin="19,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" OpacityMask="Red" Width="165">
+            <Label.Background>
+                <SolidColorBrush Color="White" Opacity="0" />
+            </Label.Background>
+        </Label>
+        <Label Foreground="Black" Content="Select Size" HorizontalAlignment="Left" Margin="210,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="174" OpacityMask="Red"/>
+        <Label Foreground="Black" Content="Select Topping" HorizontalAlignment="Left" Margin="414,118,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="182" OpacityMask="Red"/>
+        <Label Foreground="White" Content="Order List" HorizontalAlignment="Left" Margin="683,110,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
+        <ListBox x:Name="SelectPizza" Margin="18,162,701,115" Foreground="White">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListBox.Background>
+        </ListBox>
+        <ListBox x:Name="SelectSize" Margin="216,162,502,115" Foreground="Black">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListBox.Background>
+        </ListBox>
+        <ListBox x:Name="SelectTopping" SelectionMode="Multiple" Margin="425,162,295,115" Foreground="Back">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListBox.Background>
+        </ListBox>
+        <ListBox x:Name="OrderList" SelectionMode="Multiple" Margin="629,162,10,93" Foreground="White">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListBox.Background>
+        </ListBox>
+        <Button x:Name="ConfirmPizza" Content="Confirm Pizza" HorizontalAlignment="Left" Margin="28,409,0,0" VerticalAlignment="Top" Height="39" Width="147" FontSize="20" Click="ConfirmPizza_Click"/>
+        <Button x:Name="ClearOrder" Content="Clear Order" HorizontalAlignment="Left" Margin="228,409,0,0" VerticalAlignment="Top" Height="39" Width="124" FontSize="20" Click="Button_Click"/>
+        <Button Content="Select Sides" HorizontalAlignment="Left" Margin="428,409,0,0" VerticalAlignment="Top" FontSize="20" Width="125" Height="39"/>
+        <Button Content="Remove Item(s)" HorizontalAlignment="Left" Margin="672,409,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.2,0.167" FontSize="20" Click="Button_Click_1" Height="39" Width="154"/>
 
     </Grid>
 </Window>
