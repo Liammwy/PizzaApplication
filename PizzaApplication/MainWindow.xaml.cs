@@ -56,7 +56,23 @@ namespace PizzaApplication
                 pizzaChoice.Pizza = SelectPizza.SelectedItem.ToString();
                 pizzaChoice.Size = SelectSize.SelectedItem.ToString();
                 pizzaChoice.Toppings = SelectTopping.SelectedItem.ToString();
-                OrderList.Items.Add($"Pizza Number: {OrderList.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {pizzaChoice.Toppings}");
+                List<string> PizzaToppingsSelect = new List<string>();
+                foreach(string topping in SelectTopping.SelectedItems)
+                {
+                    if (topping == "None")
+                    {
+                        Trace.WriteLine("None topping selection has been made, therefore no pizzas will be added to the list.");
+                        PizzaToppingsSelect.Clear();
+                        PizzaToppingsSelect.Add(topping);
+                        break;
+                    }
+                    else
+                    {
+                        PizzaToppingsSelect.Add(topping);
+                    }
+                }
+                string combinedString = string.Join(", ", PizzaToppingsSelect);
+                OrderList.Items.Add($"Pizza Number: {OrderList.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}");
             }
             SelectPizza.UnselectAll();
             SelectSize.UnselectAll();

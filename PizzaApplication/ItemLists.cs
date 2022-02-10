@@ -59,11 +59,12 @@ namespace PizzaApplication
             "Ham",
         };
 
+
         public void addPizza()
         {
             foreach (string pizza in PizzaTypes)
             {
-                instance.SelectPizza.Items.Add($"- {pizza} pizza");
+                instance.SelectPizza.Items.Add($"{pizza} pizza");
             }
         }
 
@@ -71,7 +72,7 @@ namespace PizzaApplication
         {
             foreach (string size in PizzaSizes)
             {
-                instance.SelectSize.Items.Add($"- {size}");
+                instance.SelectSize.Items.Add($"{size}");
             }
         }
 
@@ -79,7 +80,7 @@ namespace PizzaApplication
         {
             foreach (string topping in PizzaToppings)
             {
-                instance.SelectTopping.Items.Add($"- {topping}");
+                instance.SelectTopping.Items.Add($"{topping}");
             }
         }
     }
