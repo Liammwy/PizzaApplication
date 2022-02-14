@@ -21,6 +21,7 @@ namespace PizzaApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        int TotalCost = 0;
         public ItemLists itemList;
         public PizzaChoice pizzaChoice = new PizzaChoice();
 
@@ -86,7 +87,7 @@ namespace PizzaApplication
                     }
                 }
                 string combinedString = string.Join(", ", PizzaToppingsSelect);
-                OrderList.Items.Add($"Pizza Number: {OrderList.Items.Count + 1}\nPizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}\n");
+                OrderList.Items.Add($"Pizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}\n");
             }
             SelectPizza.UnselectAll();
             SelectSize.UnselectAll();
@@ -110,6 +111,22 @@ namespace PizzaApplication
                     OrderList.Items.Remove(OrderList.SelectedItems[i]);
                 }
             }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Current.Shutdown();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            foreach(string sides in SelectSides.SelectedItems)
+            {
+                OrderListSides.Items.Add($"{sides}");
+            }
+
+            SelectSides.UnselectAll();
         }
     }
 }

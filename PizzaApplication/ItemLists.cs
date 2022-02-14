@@ -19,15 +19,18 @@ namespace PizzaApplication
     public class ItemLists
     {
         public MainWindow instance;
-
         public ItemLists(MainWindow instance)
         {
             this.instance = instance;
             addPizza();
             addSize();
             addTopping();
+            addSides();
         }
 
+        public Dictionary<string, double> ConfirmedPizzas = new Dictionary<string, double>();
+
+        //Dictionary containing all the pizza types and their associated price.
         public Dictionary<string, double> PizzaType = new Dictionary<string, double>()
         {
             {"Neapolitan", 7.80},
@@ -40,12 +43,18 @@ namespace PizzaApplication
             {"Ham", 5.20},
         };
 
+        /*
+         * Dictionary containing all the pizza sizes along with how much extra they will cost the order.
+         * The way this works is PizzaType * PizzaSize, this stops me from having to define every pizza and their associated size.
+         * Of course this isn't perfect, but the system works as intended.
+         */
         public Dictionary<string, double> PizzaSize = new Dictionary<string, double>()
         {
-            {"Small", 1.05},
+            {"Small", 1},
             {"Medium", 1.2},
-            {"Large", 1.3},
-            {"Extra Large", 1.5},
+            {"Large", 1.45},
+            {"Extra Large", 1.7},
+            {"Party", 1.95},
         };
 
         public Dictionary<string, double> PizzaTopping = new Dictionary<string, double>()
@@ -60,42 +69,21 @@ namespace PizzaApplication
             {"Beef", 5.20},
         };
 
-        //Pizza Types list, add more pizza types here.
-        public List<string> PizzaTypes = new List<string>()
+        public Dictionary<string, double> PizzaSides = new Dictionary<string, double>()
         {
-            "Neapolitan",
-            "Chicago",
-            "Greek",
-            "Margherita",
-            "Meat Loaf",
-            "Hawaiian",
-        };
-        //Pizza Size list, Easier to edit adding them all to a list.
-        public List<string> PizzaSizes = new List<string>()
-        {
-            "Small",
-            "Medium",
-            "Large",
-            "Extra Large",
-        };
-        //Pizza Toppings list.
-        public List<string> PizzaToppings = new List<string>()
-        {
-            "None",
-            "Extra Cheese",
-            "Peppers",
-            "Beef",
-            "Chicken",
-            "Pickles",
-            "Onion",
-            "Mushrooms",
-            "Ham",
+            {"Diet Coke", 4.53},
+            {"Brownie", 4.53},
+            {"Fries", 4.53},
+            {"Wedges", 4.53},
+            {"Waffles", 4.53},
+            {"Ice cream", 4.53},
+            {"Chocolate bar", 4.53},
         };
 
 
         public void addPizza()
         {
-            foreach (string pizza in PizzaTypes)
+            foreach (string pizza in PizzaType.Keys)
             {
                 instance.SelectPizza.Items.Add($"{pizza} pizza");
             }
@@ -103,7 +91,7 @@ namespace PizzaApplication
 
         public void addSize()
         {
-            foreach (string size in PizzaSizes)
+            foreach (string size in PizzaSize.Keys)
             {
                 instance.SelectSize.Items.Add($"{size}");
             }
@@ -111,9 +99,17 @@ namespace PizzaApplication
 
         public void addTopping()
         {
-            foreach (string topping in PizzaToppings)
+            foreach (string topping in PizzaTopping.Keys)
             {
                 instance.SelectTopping.Items.Add($"{topping}");
+            }
+        }
+
+        public void addSides()
+        {
+            foreach (string side in PizzaSides.Keys)
+            {
+                instance.SelectSides.Items.Add($"{side}");
             }
         }
     }

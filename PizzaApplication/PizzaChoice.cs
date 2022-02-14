@@ -11,6 +11,7 @@ namespace PizzaApplication
         private string toppings;
         private string pizza;
         private string size;
+        private string sides;
 
         public string Toppings
         {
@@ -28,6 +29,12 @@ namespace PizzaApplication
         {
             get { return size; }
             set { size = value; }
+        }
+
+        public string Sides
+        {
+            get { return sides; } 
+            set { sides = value; }
         }
     }
 }
