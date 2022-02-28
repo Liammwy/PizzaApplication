@@ -68,7 +68,7 @@ namespace PizzaApplication
             "Wedges",
             "Waffles",
             "Ice cream",
-            "Chocolate Bar",
+            "Chocolate bar",
         };
 
         public void addPizza()

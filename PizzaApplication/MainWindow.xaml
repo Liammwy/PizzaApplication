@@ -67,6 +67,9 @@
         <Button Content="Confirm Sides" Background="MediumPurple" Foreground="White" HorizontalAlignment="Left" Margin="578,503,0,0" VerticalAlignment="Top" FontSize="17" Width="122" Height="45" Click="Button_Click_2"/>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="852,14,0,0" VerticalAlignment="Top" Height="59" Width="132" FontSize="20" Click="Button_Click_3"/>
         <Label x:Name="TotalCostLabel" Foreground="White" Content="Total Cost: £0" HorizontalAlignment="Left" Height="44" Margin="809,686,0,0" VerticalAlignment="Top" Width="218" FontSize="26"/>
+        <Label Content="Delivery" HorizontalAlignment="Left" Margin="376,501,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <CheckBox x:Name="Yes" Content="Yes" HorizontalAlignment="Left" Margin="379,555,0,0" VerticalAlignment="Top" FontSize="25" Width="89" Checked="Yes_Checked"/>
+        <CheckBox x:Name="No" Content="No" HorizontalAlignment="Left" Margin="379,589,0,0" VerticalAlignment="Top" FontSize="25" Width="89" Checked="No_Checked"/>
 
     </Grid>
 </Window>

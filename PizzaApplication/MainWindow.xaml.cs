@@ -123,6 +123,13 @@ namespace PizzaApplication
                     OrderList.Items.Remove(OrderList.SelectedItems[i]);
                 }
             }
+            if (OrderListSides.SelectedIndex != -1)
+            {
+                for (int i = OrderListSides.SelectedItems.Count -1; i >= 0; i--)
+                {
+                    OrderListSides.Items.Remove(OrderListSides.SelectedItems[i]);
+                }
+            }
         }
 
         protected override void OnClosed(EventArgs e)
@@ -133,15 +140,36 @@ namespace PizzaApplication
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            foreach(string sides in SelectSides.SelectedItems)
+            double costOfSide = 0;
+            foreach (string sides in SelectSides.SelectedItems)
             {
-                OrderListSides.Items.Add($"{sides}");
+                costOfSide += items.PizzaSides[sides];
+                TotalCost += costOfSide;
+                TotalCost = Math.Round(TotalCost, 2);
+                TotalCostLabel.Content = ($"Total cost: £{TotalCost}");
+                OrderListSides.Items.Add($"{sides}\nCost: £{costOfSide}");
+                costOfSide = 0;
             }
 
             SelectSides.UnselectAll();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Window1 window = new Window1();
+            Random random = new Random();
+            int randomNum = random.Next(10000, 50000);
+            window.ReceiptCost.Content = ($"Total Cost: £{TotalCost}");
+            window.ReceiptNum.Content = ($"Receipt Number: {randomNum}");
+            window.Show();
+        }
+
+        private void Yes_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void No_Checked(object sender, RoutedEventArgs e)
         {
 
         }

@@ -12,14 +12,14 @@ namespace PizzaApplication
 
         public Dictionary<string, double> PizzaType = new Dictionary<string, double>()
         {
-            {"Neapolitan", 7.80},
-            {"Chicago", 8.60},
+            {"Neapolitan", 7.85},
+            {"Chicago", 8.75},
             {"Greek", 7.15},
             {"Margherita", 5.45},
             {"Meat Lover", 13.35},
             {"Hawaiian", 9.85},
             {"Texan BBQ", 13.65},
-            {"Ham", 5.20},
+            {"Ham", 6.85},
         };
 
         /*
@@ -30,9 +30,9 @@ namespace PizzaApplication
         public Dictionary<string, double> PizzaSize = new Dictionary<string, double>()
         {
             {"Small", 1},
-            {"Medium", 1.2},
+            {"Medium", 1.22},
             {"Large", 1.45},
-            {"Extra Large", 1.7},
+            {"Extra Large", 1.75},
             {"Party", 1.95},
         };
 
@@ -43,20 +43,20 @@ namespace PizzaApplication
             {"Ham", 0.65},
             {"Onion", 0.45},
             {"Olives", 0.45},
-            {"Mushrooms", 0.5},
-            {"Peppers", 0.5},
+            {"Mushrooms", 0.65},
+            {"Peppers", 0.55},
             {"Beef", 0.75},
         };
 
         public Dictionary<string, double> PizzaSides = new Dictionary<string, double>()
         {
-            {"Diet Coke", 1.50},
+            {"Diet Coke", 1.45},
             {"Brownie", 3.25},
             {"Fries", 2.55},
-            {"Wedges", 3.20},
-            {"Waffles", 3.60},
-            {"Ice cream", 2.30},
-            {"Chocolate bar", 1.10},
+            {"Wedges", 3.25},
+            {"Waffles", 3.65},
+            {"Ice cream", 2.35},
+            {"Chocolate bar", 1.15},
         };
     }
 }
