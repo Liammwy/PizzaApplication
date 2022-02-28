@@ -19,7 +19,7 @@
         </Label>
         <Label Foreground="white" Content="Select Size" HorizontalAlignment="Left" Margin="207,140,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="153" OpacityMask="Red"/>
         <Label Foreground="Black" Content="Select Topping" HorizontalAlignment="Left" Margin="376,142,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="25" Width="184" OpacityMask="Red" RenderTransformOrigin="0.549,0.461"/>
-        <Label Foreground="white" Content="Order List" HorizontalAlignment="Left" Margin="840,132,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="30" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
+        <Label Foreground="white" Content="Order List" HorizontalAlignment="Left" Margin="840,78,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="30" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
         <ListBox x:Name="SelectPizza" Margin="27,191,921,347" Foreground="white">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
@@ -35,7 +35,7 @@
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <ListBox x:Name="OrderList" SelectionMode="Multiple" Margin="785,191,49,347" Foreground="white">
+        <ListBox x:Name="OrderList" SelectionMode="Multiple" Margin="785,127,49,411" Foreground="white">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
@@ -58,13 +58,15 @@
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <Label Foreground="white" Content="Sides Order List" HorizontalAlignment="Left" Margin="798,453,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="30" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
-        <ListBox x:Name="OrderListSides" SelectionMode="Multiple" Margin="785,503,49,35" Foreground="white">
+        <Label Foreground="white" Content="Sides Order List" HorizontalAlignment="Left" Margin="798,381,0,0" VerticalAlignment="Top" FontFamily="MV Boli" FontSize="30" RenderTransformOrigin="1.519,0.751" OpacityMask="Red"/>
+        <ListBox x:Name="OrderListSides" SelectionMode="Multiple" Margin="785,429,49,109" Foreground="white">
             <ListBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListBox.Background>
         </ListBox>
-        <Button Content="Confirm Sides" Background="MediumPurple" Foreground="White" HorizontalAlignment="Left" Margin="578,503,0,0" VerticalAlignment="Top" FontSize="17" Width="122" Height="36" Click="Button_Click_2"/>
+        <Button Content="Confirm Sides" Background="MediumPurple" Foreground="White" HorizontalAlignment="Left" Margin="578,503,0,0" VerticalAlignment="Top" FontSize="17" Width="122" Height="45" Click="Button_Click_2"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="852,14,0,0" VerticalAlignment="Top" Height="59" Width="132" FontSize="20" Click="Button_Click_3"/>
+        <Label x:Name="TotalCostLabel" Foreground="White" Content="Total Cost: £0" HorizontalAlignment="Left" Height="44" Margin="809,686,0,0" VerticalAlignment="Top" Width="218" FontSize="26"/>
 
     </Grid>
 </Window>

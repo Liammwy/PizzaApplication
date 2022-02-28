@@ -21,7 +21,10 @@ namespace PizzaApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        int TotalCost = 0;
+        double TotalCost = 0;
+        double CostOfPizza = 0;
+        int i = 0;
+        public itemList items = new itemList();
         public ItemLists itemList;
         public PizzaChoice pizzaChoice = new PizzaChoice();
 
@@ -34,6 +37,7 @@ namespace PizzaApplication
         //When the "Confirm Pizza" button is clicked, this method will run.
         private void ConfirmPizza_Click(object sender, RoutedEventArgs e)
         {
+            i++;
             //A count integer will will increment based on how many of the sections are incorrect. This will be used to see if all sections have been selected or not.
             bool valid = true;
             if (SelectPizza.SelectedItems.Count != 1)
@@ -65,8 +69,9 @@ namespace PizzaApplication
                 pizzaChoice.Toppings = SelectTopping.SelectedItem.ToString();
                 //Creating a new list to store all toppings that have been selected, as this caused some issues before with adding them to the order list.
                 List<string> PizzaToppingsSelect = new List<string>();
+                CostOfPizza += items.PizzaType[pizzaChoice.Pizza] * items.PizzaSize[pizzaChoice.Size];
                 //foreach statement to look for each topping that has been selected.
-                foreach(string topping in SelectTopping.SelectedItems)
+                foreach (string topping in SelectTopping.SelectedItems)
                 {
                     //If one of the toppings that have been selected is 'None'.
                     if (topping == "None")
@@ -84,10 +89,17 @@ namespace PizzaApplication
                     {
                         //If the topping isn't "None" then the topping will be added to the list.
                         PizzaToppingsSelect.Add(topping);
+                        CostOfPizza += items.PizzaTopping[topping];
                     }
                 }
+                CostOfPizza = Math.Round(CostOfPizza, 2);
+                TotalCost += CostOfPizza;
+                items.PizzaOrders.Add(i.ToString(), CostOfPizza);
                 string combinedString = string.Join(", ", PizzaToppingsSelect);
-                OrderList.Items.Add($"Pizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}\n");
+                OrderList.Items.Add($"Pizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}\nCost: £{CostOfPizza}");
+                CostOfPizza = 0;
+                TotalCost = Math.Round(TotalCost, 2);
+                TotalCostLabel.Content = ($"Total cost: £{TotalCost}");
             }
             SelectPizza.UnselectAll();
             SelectSize.UnselectAll();
@@ -127,6 +139,11 @@ namespace PizzaApplication
             }
 
             SelectSides.UnselectAll();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
