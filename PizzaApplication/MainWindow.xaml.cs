@@ -23,10 +23,12 @@ namespace PizzaApplication
     {
         double TotalCost = 0;
         double CostOfPizza = 0;
+        bool delivery = false;
         int i = 0;
         public itemList items = new itemList();
         public ItemLists itemList;
         public PizzaChoice pizzaChoice = new PizzaChoice();
+
 
         public MainWindow()
         {
@@ -156,22 +158,30 @@ namespace PizzaApplication
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            Window2 window2 = new Window2();
             Window1 window = new Window1();
             Random random = new Random();
             int randomNum = random.Next(10000, 50000);
             window.ReceiptCost.Content = ($"Total Cost: £{TotalCost}");
             window.ReceiptNum.Content = ($"Receipt Number: {randomNum}");
             window.Show();
+            if ()
+            {
+
+            } 
         }
 
         private void Yes_Checked(object sender, RoutedEventArgs e)
         {
-
+            CheckBox cb = sender as CheckBox;
         }
 
         private void No_Checked(object sender, RoutedEventArgs e)
         {
+            if (delivery == true)
+            {
 
+            }
         }
     }
 }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="PizzaApplication.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PizzaApplication"
+        mc:Ignorable="d"
+        Title="Window2" Height="400" Width="300">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/255px-Flag_of_Italy.svg.png"/>
+        </Grid.Background>
+        <Label x:Name="name" Content="Name:" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="address" Content="Postcode:" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <TextBox x:Name="CustomerName" HorizontalAlignment="Left" Margin="127,112,0,0" TextWrapping="Wrap" Text="Enter Postcode..." VerticalAlignment="Top" Width="149" Height="42" FontSize="18"/>
+        <TextBox x:Name="CustomerAddress" HorizontalAlignment="Left" Margin="127,43,0,0" TextWrapping="Wrap" Text="Enter Name..." VerticalAlignment="Top" Width="149" Height="42" FontSize="18"/>
+
+    </Grid>
+</Window>
