@@ -21,14 +21,15 @@ namespace PizzaApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        double TotalCost = 0;
+        public double TotalCost = 0;
         double CostOfPizza = 0;
-        bool delivery = false;
+        public bool delivery = false;
         int i = 0;
         public itemList items = new itemList();
         public ItemLists itemList;
         public PizzaChoice pizzaChoice = new PizzaChoice();
-
+        //Creating a random class that will be used to create a random number.
+        Random random = new Random();
 
         public MainWindow()
         {
@@ -91,18 +92,27 @@ namespace PizzaApplication
                     {
                         //If the topping isn't "None" then the topping will be added to the list.
                         PizzaToppingsSelect.Add(topping);
+                        //Adding the cost of each topping to the cost of the individual pizza.
                         CostOfPizza += items.PizzaTopping[topping];
                     }
                 }
+                //Rounding the cost of the pizza to 2 digits.
                 CostOfPizza = Math.Round(CostOfPizza, 2);
+                //Making the total cost equal the cost of the pizza.
                 TotalCost += CostOfPizza;
+                //Adding the cost of the pizza to a list along with the number of 'i'.
                 items.PizzaOrders.Add(i.ToString(), CostOfPizza);
+                //Adding all the pizza toppings into one combined string using this format. It will be displayed as "t1,t2,t3"
                 string combinedString = string.Join(", ", PizzaToppingsSelect);
+                //Adding the pizza, size, topping and cost to the orderlist.
                 OrderList.Items.Add($"Pizza Name: {pizzaChoice.Pizza}\nPizza Size: {pizzaChoice.Size}\nPizza Toppings: {combinedString}\nCost: £{CostOfPizza}");
+                //Setting the cost of the pizza back to 0 as we're moving on to another pizza.
                 CostOfPizza = 0;
                 TotalCost = Math.Round(TotalCost, 2);
+                //Adding the total cost to the label, this will update each time something is added to the order.
                 TotalCostLabel.Content = ($"Total cost: £{TotalCost}");
             }
+            //Unselecting all the selected items so that the user can select another custom pizza.
             SelectPizza.UnselectAll();
             SelectSize.UnselectAll();
             SelectTopping.UnselectAll();
@@ -116,6 +126,7 @@ namespace PizzaApplication
             SelectTopping.UnselectAll();
         }
 
+        //Deleting function. Checks to see how many items in each list have been selected and then deletes the ones that were selected.
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (OrderList.SelectedIndex != -1)
@@ -134,54 +145,78 @@ namespace PizzaApplication
             }
         }
 
+        //A little function to stop the program from not being able to close when 2 applications are opened.
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Application.Current.Shutdown();
         }
 
+        //Checking to see how many sides, if any, have been selected.
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             double costOfSide = 0;
+            //Foreach loop to loop over each side that has been selected.
             foreach (string sides in SelectSides.SelectedItems)
             {
+                //Adding the cost of easch side to a value.
                 costOfSide += items.PizzaSides[sides];
+                //Adding that valeu to the total cost.
                 TotalCost += costOfSide;
+                //Rounding the total cost.
                 TotalCost = Math.Round(TotalCost, 2);
+                //Updating the total cost label.
                 TotalCostLabel.Content = ($"Total cost: £{TotalCost}");
+                //Adding each item to the order list for the sides.
                 OrderListSides.Items.Add($"{sides}\nCost: £{costOfSide}");
                 costOfSide = 0;
             }
-
+            //Unselecting all the sides so they can pick some more if they want to.
             SelectSides.UnselectAll();
         }
 
+        //Submit Button, this will move onto either the reciept or the delivery stages depending on if the user has selected delivery.
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Window2 window2 = new Window2();
+            //Creating new instances for each of the windows (Window1 = receipt, Window2 = delivery confirmation).
             Window1 window = new Window1();
-            Random random = new Random();
-            int randomNum = random.Next(10000, 50000);
+            Window2 window2 = new Window2();
+
+            //Random number generator.
+            int randomNum = random.Next(10000, 99999);
+            //Updating each of the labels in the receipt to correspond with the correct value.
             window.ReceiptCost.Content = ($"Total Cost: £{TotalCost}");
             window.ReceiptNum.Content = ($"Receipt Number: {randomNum}");
-            window.Show();
-            if ()
-            {
+            window.ReceiptDelivery.Content = ($"Delivery: {delivery}");
+            //Hiding the name and the address as these won't be needed if the user hasn't selected delivery.
+            window.ReceiptName.Visibility = Visibility.Hidden;
+            window.ReceiptAddress.Visibility = Visibility.Hidden;
+            //Setting the totalCost variable in the delivery confirmation window to the TotalCost.
+            window2.totalCost = TotalCost;
 
+            //Checking to see if the yes is ticked for delivery.
+            if (Yes.IsChecked == true)
+            {
+                //If they want delivery, it will show the delivery confirmation window.
+                window2.Show();
+                //Will set the delivery to true.
+                delivery = true;
+                window2.delivery = delivery;
             } 
+            //If yes isn't checked, that means they don't want delivery and the receipt window will be shown.
+            else
+            {
+                window.Show();
+                delivery = false;
+            }
         }
 
         private void Yes_Checked(object sender, RoutedEventArgs e)
         {
-            CheckBox cb = sender as CheckBox;
         }
 
         private void No_Checked(object sender, RoutedEventArgs e)
         {
-            if (delivery == true)
-            {
-
-            }
         }
     }
 }

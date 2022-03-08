@@ -12,8 +12,9 @@
         </Grid.Background>
         <Label x:Name="name" Content="Name:" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="address" Content="Postcode:" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox x:Name="CustomerName" HorizontalAlignment="Left" Margin="127,112,0,0" TextWrapping="Wrap" Text="Enter Postcode..." VerticalAlignment="Top" Width="149" Height="42" FontSize="18"/>
-        <TextBox x:Name="CustomerAddress" HorizontalAlignment="Left" Margin="127,43,0,0" TextWrapping="Wrap" Text="Enter Name..." VerticalAlignment="Top" Width="149" Height="42" FontSize="18"/>
+        <TextBox x:Name="CustomerName" HorizontalAlignment="Left" Margin="127,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="42" FontSize="18"/>
+        <TextBox x:Name="CustomerAddress" HorizontalAlignment="Left" Margin="127,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="42" FontSize="18"/>
+        <Button Content="Submit" Background="LawnGreen" HorizontalAlignment="Center" Margin="0,227,0,0" VerticalAlignment="Top" Height="44" Width="136" FontSize="23" Click="Button_Click"/>
 
     </Grid>
 </Window>
