@@ -8,7 +8,13 @@ namespace PizzaApplication
 {
     public class itemList
     {
-        public Dictionary<string, double> PizzaOrders = new Dictionary<string, double>();
+        
+        /* This class is used to store a bunch of dictionaries. These dictionaries are used throughout the program
+         * PizzaType is the type of pizza and the price of that pizza.
+         * PizzaSize is the size of the pizza and the multiplier of that size (PizzaType * PizzaSize)
+         * PizzaTopping is the list of toppings and their price.
+         * PizzaSides is the list of sides and their price.
+         */
 
         public Dictionary<string, double> PizzaType = new Dictionary<string, double>()
         {
@@ -22,11 +28,6 @@ namespace PizzaApplication
             {"Ham", 6.85},
         };
 
-        /*
-         * Dictionary containing all the pizza sizes along with how much extra they will cost the order.
-         * The way this works is PizzaType * PizzaSize, this stops me from having to define every pizza and their associated size.
-         * Of course this isn't perfect, but the system works as intended.
-         */
         public Dictionary<string, double> PizzaSize = new Dictionary<string, double>()
         {
             {"Small", 1},
